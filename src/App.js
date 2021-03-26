@@ -4,11 +4,13 @@ import './App.css';
 import MovieList from './components/MovieList';
 import MovieListTitle from './components/MovieListTitle';
 import SearchField from './components/SearchField';
+import AddFavourites from './components/AddFavourites';
 
 const App = () => {
 
 
   const [movies, setMovies] = useState([]);
+  const [favourites, setFavourites] = useState([]);
   const [searchTitle, setSearchTitle] = useState('');
 
   const fetchMovie = async (searchTitle) => {
@@ -31,7 +33,7 @@ const App = () => {
       <SearchField searchTitle={searchTitle} setSearchTitle={setSearchTitle} />
     </div>
     <div className='row'>
-      <MovieList movies={movies} />
+      <MovieList movies={movies} favouriteComponent={AddFavourites} />
     </div>
   </div>
 }
