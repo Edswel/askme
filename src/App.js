@@ -27,13 +27,18 @@ const App = () => {
     fetchMovie(searchTitle);
   }, [searchTitle]);
 
+  const addFavouriteMovie = (movie) => {
+    const newFavouriteList = [...favourites, movie];
+    setFavourites(newFavouriteList);
+  }
+
   return <div className='container-fluid movie-app'>
     <div className='row d-flex align-items-center mt-4 mb-4'>
       <MovieListTitle heading='Movies' />
       <SearchField searchTitle={searchTitle} setSearchTitle={setSearchTitle} />
     </div>
     <div className='row'>
-      <MovieList movies={movies} favouriteComponent={AddFavourites} />
+      <MovieList movies={movies} handleFavouritesClick={addFavouriteMovie} favouriteComponent={AddFavourites} />
     </div>
   </div>
 }
