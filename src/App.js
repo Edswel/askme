@@ -47,9 +47,11 @@ const App = () => {
 
   const reMoveFavouritesMovie = (movie) => {
     const newFavouriteList = favourites.filter(
-      (favourite) => favourite.imdbID !== movie.imdbID)
+      (favourite) => favourite.imdbID !== movie.imdbID
+    );
     setFavourites(newFavouriteList);
-  }
+    saveToLocalStorage(newFavouriteList);
+  };
 
   return (
     <div className='container-fluid movie-app'>
